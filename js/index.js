@@ -5,7 +5,7 @@ $(":button").click(function(){
         url: '',
         data: input,
         success: function(response) {
-            
+            $('#result').html(response);
         },
         error: function(response) {
             alert('Si è verificato un errore');
