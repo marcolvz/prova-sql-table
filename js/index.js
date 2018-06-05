@@ -1,13 +1,15 @@
-$(":button").click(function(){
-    var input = $("searchInput").val();
-    
+$(":button").click(function () {
+    var nome = $("#searchInput").val();
+
     $.ajax({
-        url: '',
-        data: input,
-        success: function(response) {
+        url: 'php/ricerca.php',
+        data: {
+            nome
+        },
+        success: function (response) {
             $('#result').html(response);
         },
-        error: function(response) {
+        error: function (response) {
             alert('Si è verificato un errore');
         }
     })
