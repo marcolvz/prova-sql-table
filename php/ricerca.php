@@ -31,10 +31,7 @@
 
     foreach($risultato as $riga)
     {
-        for($i = 0; $i < count($riga)/2; $i++)
-        {
-            $output = $output . $riga[$i] . "<br>";
-        }
+        $output = $output . $riga['nome'] . " " . $riga['cognome'] . " " . $riga['annoNascita'] . "<br>";
     }
 
     echo $output;
