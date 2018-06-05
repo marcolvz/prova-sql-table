@@ -26,7 +26,7 @@
     }
     else
     {
-        echo "<script type='text/javascript'>alert('nome non inserito');</script>";
+        echo "<script type='text/javascript'>alert('errore: dati inseriti non validi');</script>";
         die();
     }
 
