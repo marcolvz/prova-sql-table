@@ -1,11 +1,4 @@
 <?php
-    class persona
-    {
-        public $nome;
-        public $cognome;
-        public $annoNascita;
-    }
-
     $dbhost = '127.0.0.1';
     $dbuser = 'root';
     $dbname = 'stage';
