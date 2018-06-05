@@ -6,14 +6,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Test SQL Table</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        button {
+            margin: 25px;
+        }
+    </style>
 </head>
 
 <body>
-    <input type="text" name="searchInput" id="searchInput">
-    <input type="button" value="Cerca">
-    <div id="result"></div>
-    
+    <div class="row valign-wrapper">
+        <form class="col s12 row">
+            <div class="input-field col s2">
+                <input placeholder="Nome" id="nomeInput" type="text" class="validate">
+                <label for="first_name">Nome</label>
+            </div>
+            <div class="input-field col s2">
+                <input placeholder="Cognome" id="cognomeInput" type="text" class="validate">
+                <label for="first_name">Cognome</label>
+            </div>
+            <div class="input-field col s2">
+                <input placeholder="Anno di nascita" id="annoInput" type="text" pattern="\d*" class="validate">
+                <label for="first_name">Anno di nascita</label>
+            </div>
+            <button class="btn waves-effect waves-light">Cerca
+                <i class="material-icons right">send</i>
+            </button>
+        </form>
+    </div>
+
+
+
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
     <script src="js/index.js"></script>
 </body>
 
