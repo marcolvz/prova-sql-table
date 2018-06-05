@@ -10,9 +10,6 @@ $("#add").click(function () {
             cognome: cognome,
             annoNascita: annoNascita
         },
-        success: function (response) {
-            $('#result').html(response);
-        },
         error: function (response) {
             alert('Si è verificato un errore');
         }
