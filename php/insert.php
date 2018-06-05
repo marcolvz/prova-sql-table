@@ -4,14 +4,22 @@
     $dbname = 'stage';
     $dbpass = '';
 
-    try {
-        $conn = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
-    } catch (PDOException $e) {
-        echo $e->getMessage();
-        die();
-    }
+    try{
 
-    if(isset($_REQUEST['nome']) and isset($_REQUEST['cognome']) and isset($_REQUEST['annoNascita']))
+        $pdo = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
+    
+        // Set the PDO error mode to exception
+    
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+    } catch(PDOException $e){
+    
+        die("ERROR: Could not connect. " . $e->getMessage());
+    
+    }
+    
+
+    if(null !== $_REQUEST['nome'] and $_REQUEST['cognome'] and $_REQUEST['annoNascita'])
     {
         $nome = $_REQUEST['nome'];
         $cognome = $_REQUEST['cognome'];
@@ -22,13 +30,27 @@
         echo "<script type='text/javascript'>alert('errore: dati inseriti non validi');</script>";
         die();
     }
-
-    $query = "INSERT INTO persone (nome, cognome, annoNascita)
-    VALUES ($nome, $cognome, $annoNascita)";
-
-    if ($conn->query($sql) === TRUE) {
-        echo "New record created successfully";
-    } else {
-        echo "Error: " . $query . "<br>" . $conn->error;
+     
+    
+    // Attempt insert query execution
+    
+    try{
+    
+        $sql = "INSERT INTO persone (nome, cognome, annoNascita) VALUES ('$nome', '$cognome', '$annoNascita')";    
+    
+        $pdo->exec($sql);
+    
+        echo "Records inserted successfully.";
+    
+    } catch(PDOException $e){
+    
+        die("ERROR: Could not able to execute $sql. " . $e->getMessage());
+    
     }
+    
+     
+    
+    // Close connection
+    
+    unset($pdo);
 ?>

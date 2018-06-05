@@ -4,11 +4,14 @@ $("#add").click(function () {
     var annoNascita = $("#annoInput").val();
 
     $.ajax({
-        url: 'php/ricerca.php',
+        url: 'php/insert.php',
         data: {
             nome: nome,
             cognome: cognome,
             annoNascita: annoNascita
+        },
+        success: function(response) {
+            $('.result').html(response);
         },
         error: function (response) {
             alert('Si è verificato un errore');
@@ -25,7 +28,7 @@ $("#search").click(function () {
             nome: value
         },
         success: function (response) {
-            $('#result').html(response);
+            $('.result').html(response);
         },
         error: function (response) {
             alert('Si è verificato un errore');

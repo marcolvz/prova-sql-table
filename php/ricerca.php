@@ -55,4 +55,6 @@
     }
 
     echo $output;
+
+    unset($conn);
 ?>
