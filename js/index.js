@@ -22,7 +22,7 @@ $("#search").click(function () {
     $.ajax({
         url: 'php/ricerca.php',
         data: {
-            nome
+            value
         },
         success: function (response) {
             $('#result').html(response);
