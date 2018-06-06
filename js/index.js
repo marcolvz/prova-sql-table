@@ -35,3 +35,20 @@ $("#search").click(function () {
         }
     })
 });
+
+$("#remove").click(function () {
+    var value = $("#removeInput").val();
+
+    $.ajax({
+        url: 'php/remove.php',
+        data: {
+            nome: value
+        },
+        success: function (response) {
+            $('.result').html(response);
+        },
+        error: function (response) {
+            alert('Si è verificato un errore');
+        }
+    })
+});
